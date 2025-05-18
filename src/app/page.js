@@ -93,7 +93,7 @@ export default function Home() {
 
         <section className="py-24 bg-gray-50">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl mb-8 text-center">Books I&apos;ve Read</h2>
+            <h2 className="text-3xl mb-8 text-center">My Favorite Books</h2>
             <div className="grid sm:grid-cols-2 gap-6 text-left text-base font-mono">
               {["Clean Code — Robert C. Martin", "Deep Work — Cal Newport", "The Lean Startup — Eric Ries", "Atomic Habits — James Clear"].map((book, i) => (
                 <div key={i} className="bg-white p-4 border rounded-lg shadow">{book}</div>
@@ -121,7 +121,7 @@ export default function Home() {
             {[{ title: "Midnight Marauders", artist: "A Tribe Called Quest" },
               { title: "To Pimp a Butterfly", artist: "Kendrick Lamar" }].map((track, i) => (
               <div key={i} className="bg-white p-4 border rounded-lg shadow font-mono">
-                <p className="font-semibold">&quot;{track.title}&quot;</p>
+                <p className="font-semibold">{track.title}</p>
                 <p className="text-sm text-gray-500">{track.artist}</p>
               </div>
             ))}
