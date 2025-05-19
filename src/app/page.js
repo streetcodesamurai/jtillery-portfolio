@@ -63,9 +63,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Your Name — Web Developer</title>
+        <title>Jay Tillery — Helping brands grow with Shopify, Squarespace & WordPress — Full-Stack Developer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <main className="font-mono bg-gray-50 text-gray-900">
   {/* Header */}
