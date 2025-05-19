@@ -97,7 +97,7 @@ export default function Home() {
   {/* Testimonials */}
   <section className="bg-[#e0f7fa] py-[6.854rem] text-center text-gray-800">
     <h2 className="text-3xl mb-[2.618rem]">My Past Clients Love Me</h2>
-    <div className="relative overflow-hidden h-48">
+    <div className="relative h-48">
       <div className="relative w-full h-full max-w-xl mx-auto">
         {reviews.map((review, i) => (
           <div key={i} className="absolute inset-0 opacity-0 testimonial font-mono text-lg px-4">
