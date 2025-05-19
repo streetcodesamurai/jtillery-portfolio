@@ -15,7 +15,7 @@ export default function Home() {
   const [album, setAlbum] = useState(null);
 
 useEffect(() => {
-  const albumId = "5klPnHQ5dy6Qm2Ul7h1lp5"; // Change to any Spotify album ID
+  const albumId = "4yv17Q486G8QoqM001kFKO"; // Change to any Spotify album ID
   fetch(`/api/spotify-album/${albumId}`)
     .then(res => res.json())
     .then(setAlbum);
