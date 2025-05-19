@@ -86,7 +86,7 @@ useEffect(() => {
   {/* Header */}
   <header className="bg-black text-white pt-[4.236rem] pb-[2.618rem] text-center">
     <div className="flex flex-col items-center">
-      <img src="/jtillery-logo.svg" alt="Logo" className="w-40 h-40 mb-[1.618rem]" />
+      <img src="/jtillery-logo.svg" alt="Logo" className="h-40 mb-[1.618rem]" />
       <p className="text-xl tracking-tight opacity-90 mb-[1rem] max-w-screen-sm">
         Full-stack solutions, zero-stack drama — just good code and great vibes.
       </p>
