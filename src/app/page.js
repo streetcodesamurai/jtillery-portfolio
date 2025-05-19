@@ -12,6 +12,14 @@ export default function Home() {
   const [formMessage, setFormMessage] = useState(null);
   const [messageType, setMessageType] = useState(null);
   const [reviews, setReviews] = useState([]);
+  const [album, setAlbum] = useState(null);
+
+useEffect(() => {
+  const albumId = "5klPnHQ5dy6Qm2Ul7h1lp5"; // Change to any Spotify album ID
+  fetch(`/api/spotify-album/${albumId}`)
+    .then(res => res.json())
+    .then(setAlbum);
+}, []);
 
   useEffect(() => {
     fetch('/data/testimonials.json')
@@ -120,7 +128,7 @@ export default function Home() {
   <section className="bg-[#fff8e1] py-[6.854rem]">
     <div className="max-w-4xl mx-auto px-6 text-gray-900">
       <h2 className="text-3xl mb-[2.618rem] text-center">My Favorite Books</h2>
-      <div className="grid sm:grid-cols-2 gap-[2.618rem] text-left text-base font-mono">
+      <div className="grid sm:grid-cols-2 gap-[2.618rem] text-center text-base font-mono">
         {[
           "Clean Code — Robert C. Martin",
           "Deep Work — Cal Newport",
@@ -135,17 +143,33 @@ export default function Home() {
 
   {/* Listening To */}
   <section className="bg-[#ede7f6] py-[6.854rem] text-center text-gray-800">
+  <div className="max-w-4xl mx-auto px-6">
     <h2 className="text-3xl mb-[2.618rem]">Currently Listening To</h2>
-    <div className="grid sm:grid-cols-2 gap-[2.618rem] max-w-4xl mx-auto">
-      {[{ title: "Midnight Marauders", artist: "A Tribe Called Quest" },
-        { title: "To Pimp a Butterfly", artist: "Kendrick Lamar" }].map((track, i) => (
-        <div key={i} className="bg-white p-6 border rounded-lg shadow font-mono">
-          <p className="font-semibold">{track.title}</p>
-          <p className="text-sm text-gray-500">{track.artist}</p>
+    {album ? (
+      <a
+        href={album.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block transform transition duration-500 hover:scale-105"
+      >
+        <div className="bg-white p-6 border rounded-lg shadow font-mono inline-block max-w-xs mx-auto">
+          <img
+            src={album.image}
+            alt={album.title}
+            className="w-48 h-48 mx-auto mb-4 rounded shadow-md animate-pulse"
+          />
+          <p className="font-semibold">{album.title}</p>
+          <p className="text-sm text-gray-500">{album.artists}</p>
+          <span className="text-xs text-purple-500 underline inline-block mt-2">
+            Listen on Spotify
+          </span>
         </div>
-      ))}
-    </div>
-  </section>
+      </a>
+    ) : (
+      <p className="text-base text-gray-500">Loading album…</p>
+    )}
+  </div>
+</section>
 
   {/* Footer */}
   <footer className="py-[4.236rem] bg-black text-white text-center">
