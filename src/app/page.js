@@ -5,10 +5,12 @@ import Head from 'next/head';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
-
+  const [formMessage, setFormMessage] = useState(null);
+  const [messageType, setMessageType] = useState(null);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -205,12 +207,70 @@ export default function Home() {
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative scale-95 transition-transform duration-300 ease-out">
         <button onClick={() => setShowModal(false)} className="absolute top-2 right-2 text-gray-500 hover:text-black" aria-label="Close modal">&times;</button>
         <h2 id="contact-title" className="text-2xl mb-4">Contact Me</h2>
-        <form className="space-y-[1.618rem] font-mono">
-          <input type="text" placeholder="Your Name" className="w-full border p-2 rounded" />
-          <input type="email" placeholder="Your Email" className="w-full border p-2 rounded" />
-          <textarea placeholder="Your Message" className="w-full border p-2 rounded h-24"></textarea>
-          <button type="submit" className="w-full bg-black text-white py-2 rounded hover:bg-gray-800">Send</button>
-        </form>
+        <form
+  className="space-y-[1.618rem] font-mono"
+  onSubmit={async (e) => {
+    e.preventDefault();
+  
+    const honeypot = e.target.botcheck?.value;
+    if (honeypot !== "") return;
+  
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value
+    };
+  
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData)
+    });
+  
+    if (res.ok) {
+      setMessageType("success");
+      setFormMessage("Thanks! Your message was sent. I'll get back to you shortly.");
+      e.target.reset();
+    } else {
+      setMessageType("error");
+      setFormMessage("Oops! Something went wrong. Please try again.");
+    }
+  
+    setTimeout(() => {
+      setFormMessage(null);
+      setMessageType(null);
+    }, 4000);
+  }}
+>
+<input
+  type="text"
+  name="botcheck"
+  className="hidden"
+  autoComplete="off"
+  tabIndex="-1"
+/>
+  <input name="name" type="text" placeholder="Your Name" required className="w-full border p-2 rounded" />
+  <input name="email" type="email" placeholder="Your Email" required className="w-full border p-2 rounded" />
+  <textarea name="message" placeholder="Your Message" required className="w-full border p-2 rounded h-24"></textarea>
+  <button type="submit" className="w-full bg-black text-white py-2 rounded hover:bg-gray-800">Send</button>
+  <AnimatePresence mode="wait">
+  {formMessage && (
+    <motion.div
+      key={messageType}
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.3 }}
+      className={`mt-4 inline-flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium shadow-sm
+        ${messageType === "success" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}
+      `}
+    >
+      <i className={`fas ${messageType === "success" ? "fa-check-circle" : "fa-exclamation-circle"}`}></i>
+      <span>{formMessage}</span>
+    </motion.div>
+  )}
+</AnimatePresence>
+</form>
       </div>
     </div>
   )}
