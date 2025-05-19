@@ -147,18 +147,52 @@ export default function Home() {
 
   {/* Footer */}
   <footer className="py-[4.236rem] bg-black text-white text-center">
-    <div className="flex justify-center space-x-[2.618rem] text-2xl mb-[1.618rem]">
-      {["linkedin", "github"].map((icon, i) => (
-        <a key={i} href="#" className="hover:text-[#90caf9]"><i className={`fab fa-${icon}`}></i></a>
-      ))}
-    </div>
-    <button
-      onClick={() => setShowModal(true)}
-      className="bg-white text-black px-6 py-2 rounded hover:bg-gray-200 font-semibold font-mono"
-    >
-      <i className="fas fa-envelope mr-2"></i> Contact Me
-    </button>
-  </footer>
+  {/* Social Icons */}
+  <div className="flex justify-center items-center space-x-[2.618rem] text-2xl mb-[1.618rem]">
+    {[
+      {
+        name: "LinkedIn",
+        icon: "linkedin",
+        url: "https://www.linkedin.com/in/jaytillery"
+      },
+      {
+        name: "GitHub",
+        icon: "github",
+        url: "https://github.com/streetcodesamurai"
+      },
+      {
+        name: "Dribbble",
+        icon: "dribbble",
+        url: "https://dribbble.com/tillz"
+      },
+      {
+        name: "YouTube",
+        icon: "youtube",
+        url: "https://www.youtube.com/@jay-tillery"
+      }
+    ].map((item, i) => (
+      <a
+        key={i}
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={item.name}
+        className="hover:text-[#90caf9] transition-colors duration-200"
+      >
+        <i className={`fab fa-${item.icon}`}></i>
+      </a>
+    ))}
+  </div>
+
+  {/* Contact Button */}
+  <button
+    onClick={() => setShowModal(true)}
+    className="bg-white text-black px-6 py-2 rounded hover:bg-gray-200 font-semibold font-mono transition-colors duration-200"
+    aria-label="Open contact form"
+  >
+    <i className="fas fa-envelope mr-2"></i> Contact Me
+  </button>
+</footer>
 
   {/* Modal */}
   {showModal && (
