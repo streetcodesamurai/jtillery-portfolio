@@ -8,7 +8,7 @@ export async function GET(req) {
     return NextResponse.json({ error: 'Invalid album ID' }, { status: 400 });
   }
 
-  const tokenRes = await fetch('http://localhost:3000/api/spotify/token');
+  const tokenRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/spotify/token`);
   const { access_token } = await tokenRes.json();
 
   if (!access_token) {
