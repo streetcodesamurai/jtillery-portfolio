@@ -1,5 +1,3 @@
-'use client';
-
 import Script from 'next/script';
 import { Providers } from './providers';
 import { Geist, Geist_Mono } from "next/font/google";
