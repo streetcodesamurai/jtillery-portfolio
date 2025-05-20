@@ -90,6 +90,13 @@ useEffect(() => {
       <p className="text-xl tracking-tight opacity-90 mb-[1rem] max-w-screen-sm">
         Full-stack solutions, zero-stack drama — just good code and great vibes.
       </p>
+      <button
+    onClick={() => setShowModal(true)}
+    className="bg-white text-black px-6 py-2 rounded hover:bg-gray-200 font-semibold font-mono transition-colors duration-200"
+    aria-label="Open contact form"
+    >
+      <i className="fas fa-envelope mr-2"></i> Contact Me
+    </button>
     </div>
   </header>
 
