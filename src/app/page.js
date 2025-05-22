@@ -108,7 +108,7 @@ useEffect(() => {
         {[
           "HTML", "CSS", "JavaScript", "React", "Tailwind CSS",
           "Node.js", "MongoDB", "Git", "WordPress",
-          "Shopify", "Squarespace", "NextJS", "Bootstrap"
+          "Shopify", "Squarespace", "NextJS", "Bootstrap", "PHP", "mySQL", "Agile"
         ].map((skill) => (
           <span key={skill} className="bg-white text-black px-4 py-2 rounded shadow">{skill}</span>
         ))}
