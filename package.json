@@ -13,6 +13,7 @@
     "@aws-sdk/lib-dynamodb": "^3.812.0",
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@sendgrid/mail": "^8.1.5",
+    "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.12.1",
     "gsap": "^3.13.0",
     "mongodb": "^6.16.0",
