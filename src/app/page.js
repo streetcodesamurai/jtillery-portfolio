@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { motion, AnimatePresence } from "framer-motion";
+import BookList from '@/components/BookList';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -100,6 +101,31 @@ useEffect(() => {
     </div>
   </header>
 
+  {/* Bio Section */}
+  <section className="bg-[#e3f2fd] py-[6.854rem] text-gray-900 text-center font-mono">
+    <div className="max-w-3xl mx-auto px-6 flex flex-col items-center">
+    <div className="relative w-32 h-32 mb-6 perspective">
+      <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180">
+        <img
+          src="/tillzsquare.jpg"
+          alt="Jay Tillery"
+          className="absolute w-full h-full rounded-full object-cover shadow-lg border-4 border-white backface-hidden"
+        />
+        <div className="absolute w-full h-full rounded-full bg-[#1a237e] text-white flex items-center justify-center text-sm font-semibold rotate-y-180 backface-hidden">
+          <span>Hello 👋</span>
+        </div>
+      </div>
+    </div>
+      <h2 className="text-3xl mb-[1.618rem] text-[#4b3b1f]">A Little About Me</h2>
+      <p className="text-lg leading-relaxed text-[#3e2d14]">
+        I’m Jay Tillery — a full-stack developer blending modern tech with old-school craftsmanship. From Shopify storefronts to custom WordPress builds, I help brands build fast, beautiful, and functional digital experiences. I believe in clean code, clean design, and creating tools that make people’s lives easier (and cooler).
+      </p>
+      <p className="mt-6 text-base text-[#7a6d57] italic">
+        When I’m not coding, you’ll find me spinning records, curating books, or mastering the art of Brazilian Jiu-jitsu.
+      </p>
+    </div>
+  </section>
+
   {/* Skills Section */}
   <section className="bg-[#f5f5f5] text-center py-[6.854rem]">
     <div className="max-w-screen-md mx-auto px-4">
@@ -118,7 +144,7 @@ useEffect(() => {
 
   {/* Testimonials */}
   <section className="bg-[#e0f7fa] py-[6.854rem] text-center text-gray-800">
-    <h2 className="text-3xl mb-[2.618rem]">My Past Clients Love Me</h2>
+    <h2 className="text-3xl mb-[2.618rem]">The Word on the Street is...</h2>
     <div className="relative h-48">
       <div className="relative w-full h-full max-w-xl mx-auto">
         {reviews.map((review, i) => (
@@ -132,21 +158,7 @@ useEffect(() => {
   </section>
 
   {/* Favorite Books */}
-  <section className="bg-[#fff8e1] py-[6.854rem]">
-    <div className="max-w-4xl mx-auto px-6 text-gray-900">
-      <h2 className="text-3xl mb-[2.618rem] text-center">My Favorite Books</h2>
-      <div className="grid sm:grid-cols-2 gap-[2.618rem] text-center text-base font-mono">
-        {[
-          "Clean Code — Robert C. Martin",
-          "Deep Work — Cal Newport",
-          "The Lean Startup — Eric Ries",
-          "Atomic Habits — James Clear"
-        ].map((book, i) => (
-          <div key={i} className="bg-white p-6 border rounded-lg shadow">{book}</div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <BookList />
 
   {/* Listening To */}
   <section className="bg-[#ede7f6] py-[6.854rem] text-center text-gray-800">
