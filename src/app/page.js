@@ -88,9 +88,9 @@ useEffect(() => {
   <header className="bg-black text-white pt-[4.236rem] pb-[2.618rem] text-center">
     <div className="flex flex-col items-center">
       <img src="/jtillery-logo.svg" alt="Logo" className="h-40 mb-[1.618rem]" />
-      <p className="text-xl tracking-tight opacity-90 mb-[1rem] max-w-screen-sm">
+      <h1 className="text-xl tracking-tight opacity-90 mb-[1rem] max-w-screen-sm" aria-label="Jay Tillery — Full-stack Developer">
         Full-stack solutions, zero-stack drama — just good code and great vibes.
-      </p>
+      </h1>
       <button
     onClick={() => setShowModal(true)}
     className="bg-white text-black px-6 py-2 rounded hover:bg-gray-200 font-semibold font-mono transition-colors duration-200"
@@ -120,8 +120,8 @@ useEffect(() => {
       <p className="text-lg leading-relaxed text-[#3e2d14]">
         I’m Jay Tillery — a full-stack developer blending modern tech with old-school craftsmanship. From Shopify storefronts to custom WordPress builds, I help brands build fast, beautiful, and functional digital experiences. I believe in clean code, clean design, and creating tools that make people’s lives easier (and cooler).
       </p>
-      <p className="mt-6 text-base text-[#7a6d57] italic">
-        When I’m not coding, you’ll find me spinning records, curating books, or mastering the art of Brazilian Jiu-jitsu.
+      <p className="mt-6 text-base text-[#5f5441] italic">
+        When I’ßm not coding, you'll find me spinning records, curating books, or mastering the art of Brazilian Jiu-jitsu.
       </p>
     </div>
   </section>
@@ -185,7 +185,7 @@ useEffect(() => {
         </div>
       </a>
     ) : (
-      <p className="text-base text-gray-500">Loading album…</p>
+      <p className="text-base text-gray-600">Loading album…</p>
     )}
   </div>
 </section>
