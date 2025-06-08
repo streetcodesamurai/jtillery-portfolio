@@ -121,7 +121,7 @@ useEffect(() => {
         I’m Jay Tillery — a full-stack developer blending modern tech with old-school craftsmanship. From Shopify storefronts to custom WordPress builds, I help brands build fast, beautiful, and functional digital experiences. I believe in clean code, clean design, and creating tools that make people’s lives easier (and cooler).
       </p>
       <p className="mt-6 text-base text-[#5f5441] italic">
-        When I’ßm not coding, you'll find me spinning records, curating books, or mastering the art of Brazilian Jiu-jitsu.
+        When I’m not coding, you’ll find me spinning records, curating books, or mastering the art of Brazilian Jiu-jitsu.
       </p>
     </div>
   </section>
