@@ -179,7 +179,7 @@ useEffect(() => {
           />
           <p className="font-semibold">{album.title}</p>
           <p className="text-sm text-gray-500">{album.artists}</p>
-          <span className="text-xs text-purple-500 underline inline-block mt-2">
+          <span class="text-xs text-purple-700 underline inline-block mt-2">
             Listen on Spotify
           </span>
         </div>
