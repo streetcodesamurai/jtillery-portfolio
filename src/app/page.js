@@ -16,7 +16,7 @@ export default function Home() {
   const [album, setAlbum] = useState(null);
 
 useEffect(() => {
-  const albumId = "4yv17Q486G8QoqM001kFKO"; // Change to any Spotify album ID
+  const albumId = "7wKUtfY6wtS65qsA4RRAvq"; // Change to any Spotify album ID
   fetch(`/api/spotify-album/${albumId}`)
     .then(res => res.json())
     .then(setAlbum);
@@ -157,6 +157,36 @@ useEffect(() => {
     </div>
   </section>
 
+{/* Wonderful Past Clients */}
+<section className="bg-white py-[6.854rem] text-center text-gray-800">
+  <div className="max-w-5xl mx-auto px-6">
+    <h2 className="text-3xl mb-[2.618rem] font-mono">Some of My Wonderful Clients</h2>
+    <div className="flex flex-wrap justify-center items-center gap-10">
+      {[
+        { src: "/logos/arm.png", alt: "Academy of Relationship Management" },
+        { src: "/logos/best-buy.jpeg", alt: "Best Buy" },
+        { src: "/logos/closed-sessions.png", alt: "Closed Sessions" },
+        { src: "/logos/exabeam.jpeg", alt: "Exabeam" },
+        { src: "/logos/hypebeast.jpeg", alt: "Hypebeast" },
+        { src: "/logos/laurel-rutledge.jpeg", alt: "Jessica" },
+        { src: "/logos/moonlight.webp", alt: "Moonlight Arts Collective" },
+        { src: "/logos/profitwell.jpeg", alt: "Profitwell" },
+        { src: "/logos/stonesthrow.jpeg", alt: "Stones Throw" },
+        { src: "/logos/na.jpg", alt: "Now-Again Records" },
+        { src: "/logos/violent-gentlemen.webp", alt: "Violent Gentlemen" },
+        { src: "/logos/prost.png", alt: "Prost Network" },
+      ].map(({ src, alt }, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={alt}
+          className="h-16 md:h-20 max-w-[150px] object-contain grayscale hover:grayscale-0 transition duration-300 ease-in-out"
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
   {/* Favorite Books */}
   <BookList />
 
@@ -179,7 +209,7 @@ useEffect(() => {
           />
           <p className="font-semibold">{album.title}</p>
           <p className="text-sm text-gray-500">{album.artists}</p>
-          <span class="text-xs text-purple-700 underline inline-block mt-2">
+          <span className="text-xs text-purple-700 underline inline-block mt-2">
             Listen on Spotify
           </span>
         </div>
